@@ -8,6 +8,13 @@ export default defineConfig({
   // inlined, and the highlight worker becomes one 3.4 MB file with all 34
   // grammars in it. As modules they load only the grammar a diff needs.
   worker: { format: 'es' },
+  build: {
+    // The sample diffs are fetched when one is pressed, so they have to stay
+    // files. Five of them are under the 4 kB Vite inlines by default, and an
+    // inlined asset is a base64 string in the entry — which is the bundle
+    // they were taken out of.
+    assetsInlineLimit: (filePath) => (filePath.endsWith('.diff') ? false : undefined),
+  },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

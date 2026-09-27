@@ -19,9 +19,22 @@ import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { TooltipProvider } from './ui/tooltip'
 
+/**
+ * The sample diffs, as URLs to fetch rather than as modules to import.
+ *
+ * `?raw` made each one a JavaScript chunk exporting a string: 2.1 MB of
+ * kernel commit wrapped in a module, escaped, and shipped to whoever hosts
+ * this even though nobody downloads it until a sample is pressed. `?url`
+ * emits them as the files they already are, so the build carries plain text
+ * and the browser fetches plain text.
+ *
+ * Eager on purpose. What is eager is the URL — eight short strings — not the
+ * diff behind it, which is still read only when a reader asks for it.
+ */
 const samples = import.meta.glob<string>('../../fixtures/github/*.diff', {
-  query: '?raw',
+  query: '?url',
   import: 'default',
+  eager: true,
 })
 
 const SAMPLE_LABELS: Record<string, string> = {
@@ -166,10 +179,18 @@ export function SourcePicker({
     const entry = Object.entries(samples).find(([path]) => path.endsWith(`/${name}`))
     if (entry === undefined) return
     setBusy(name)
-    void entry[1]().then((text) => {
-      setBusy(null)
-      onLoad(text, null)
-    })
+    void fetch(entry[1])
+      .then((response) => response.text())
+      .then((text) => {
+        setBusy(null)
+        onLoad(text, null)
+      })
+      .catch(() => {
+        // The samples ship beside the application, so a failure here is the
+        // network rather than a missing file. The button comes back rather
+        // than staying stuck on "Reading…".
+        setBusy(null)
+      })
   }
 
   return (
