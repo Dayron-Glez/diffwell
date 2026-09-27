@@ -133,7 +133,22 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.707 0.165 254.624);
+  /*
+    Lighter than the preset's 0.707, because of how it is used rather than
+    how it looks on its own.
+
+    Every control shadcn draws puts its focus ring at half an alpha —
+    `ring-ring/50` in the button, the input and the textarea — and at 0.707
+    that composited to 2.62:1 against the page, under the 3:1 WCAG asks of a
+    focus indicator. The controls are not the place to fix it: three of
+    shadcn's own files would have to be edited and kept edited through the
+    next `shadcn add`. One token is.
+
+    At 0.84 the half-alpha ring reaches 3.49:1 on the page and 3.48:1 on a
+    card, and the border it also colours sits at 11.38:1.
+    `npm run audit:contrast` is what says so.
+  */
+  --ring: oklch(0.84 0.165 254.624);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

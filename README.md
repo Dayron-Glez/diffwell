@@ -220,16 +220,22 @@ npm install
 npm run dev
 ```
 
-| Script               | What it does                          |
-| -------------------- | ------------------------------------- |
-| `npm run dev`        | Development server                    |
-| `npm test`           | Run the test suite                    |
-| `npm run test:watch` | Re-run tests as you edit              |
-| `npm run bench`      | Measure — see `bench/README.md` first |
-| `npm run typecheck`  | Type checking only                    |
-| `npm run lint`       | ESLint                                |
-| `npm run format`     | Prettier across the repository        |
-| `npm run build`      | Typecheck + production build          |
+| Script                   | What it does                          |
+| ------------------------ | ------------------------------------- |
+| `npm run dev`            | Development server                    |
+| `npm test`               | Run the test suite                    |
+| `npm run test:watch`     | Re-run tests as you edit              |
+| `npm run bench`          | Measure — see `bench/README.md` first |
+| `npm run audit:contrast` | Contrast, in a real browser           |
+| `npm run typecheck`      | Type checking only                    |
+| `npm run lint`           | ESLint                                |
+| `npm run format`         | Prettier across the repository        |
+| `npm run build`          | Typecheck + production build          |
 
 `main` holds completed phases; work lands on `develop` through pull requests. A pre-commit hook
 runs formatting, type checking and the tests, so nothing broken gets stored.
+
+`vercel.json` rewrites every path that is not a file to `index.html`. A pull request is a URL
+here — `/owner/repo/pull/123` — and that path exists only in the browser, so a static host asked
+for it directly, on a reload or from a shared link, would answer 404. Vercel gives the
+filesystem precedence over rewrites, so the assets are still served as the files they are.
