@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 /**
  * A separate build so the benchmark harness never ships inside the application.
  * It compiles with the same plugins and the same production settings, because a
- * number measured against a development build measures Vite, not hunk.
+ * number measured against a development build measures Vite, not diffwell.
  */
 export default defineConfig({
   // Same reason as the application config: iife workers cannot code-split.

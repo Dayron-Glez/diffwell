@@ -36,7 +36,7 @@ const STEPS: readonly { readonly title: string; readonly detail: string }[] = [
  *
  * What it is worth saying plainly: this is a credential in a browser. It is
  * kept in local storage, which any script served from this page could read.
- * hunk renders diffs as text and never as markup, so there is little to run
+ * diffwell renders diffs as text and never as markup, so there is little to run
  * — but "little" is not "none", and the honest answer is to scope the token
  * to what it needs and give it an expiry, which is what the steps say.
  *
@@ -254,7 +254,7 @@ export function TokenField({
           Sent to api.github.com and nowhere else, and never put in the address bar.{' '}
           {storageWorks()
             ? 'It stays in this browser until you forget it — anything running on this page could read it, which is why it is worth scoping narrowly.'
-            : 'This browser is not letting hunk store anything, so the token will last until you reload.'}
+            : 'This browser is not letting diffwell store anything, so the token will last until you reload.'}
         </p>
       )}
     </div>

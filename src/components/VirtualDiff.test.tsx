@@ -347,7 +347,7 @@ describe('sharing the view between the two columns', () => {
   it('comes back where it was left, under the path it belongs to', () => {
     openSplit()
     fireEvent.keyDown(divider(), { key: 'End' })
-    const stored: unknown = JSON.parse(localStorage.getItem('hunk.split-ratios') ?? '{}')
+    const stored: unknown = JSON.parse(localStorage.getItem('diffwell.split-ratios') ?? '{}')
     expect(stored).toEqual({ 'packages/vite/src/node/__tests__/utils.spec.ts': 0.85 })
   })
 })

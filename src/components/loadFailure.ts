@@ -22,7 +22,7 @@ export function describeFailure(
     case 'not-found':
       return hasToken
         ? `No pull request ${failure.ref.owner}/${failure.ref.repo}#${failure.ref.number}, or your token does not cover that repository. Check the number, and check the repositories the token was granted.`
-        : `No pull request ${failure.ref.owner}/${failure.ref.repo}#${failure.ref.number}. If it is in a private repository, hunk cannot reach it — add a token below, or drop the .diff file instead.`
+        : `No pull request ${failure.ref.owner}/${failure.ref.repo}#${failure.ref.number}. If it is in a private repository, diffwell cannot reach it — add a token below, or drop the .diff file instead.`
 
     case 'rate-limited':
       return hasToken
@@ -33,7 +33,7 @@ export function describeFailure(
       return 'GitHub rejected your token. It may have expired, or been revoked — add a new one, or forget this one to carry on without it.'
 
     case 'too-large':
-      return `GitHub will not generate a diff this large. Download it from the pull request and drop the file here — hunk itself has no trouble with the size.`
+      return `GitHub will not generate a diff this large. Download it from the pull request and drop the file here — diffwell itself has no trouble with the size.`
 
     case 'offline':
       return `The request never reached GitHub: ${failure.reason}.`
