@@ -121,7 +121,7 @@ export function App() {
       <Toaster {...TOASTS} />
       <div className="flex shrink-0 items-center gap-2 border-b border-neutral-800 px-4 py-2">
         <FileDiff aria-hidden className="size-4 text-sky-500" />
-        <h1 className="font-mono text-sm font-semibold">hunk</h1>
+        <h1 className="font-mono text-sm font-semibold">diffwell</h1>
         <Button variant="outline" size="sm" className="ml-auto" onClick={() => history.back()}>
           <ArrowLeft aria-hidden className="size-3.5" />
           Load another

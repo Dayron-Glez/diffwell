@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { TokenField } from './TokenField'
 import { Toaster } from './ui/sonner'
 
-const KEY = 'hunk.github-token'
+const KEY = 'diffwell.github-token'
 const LIMIT = JSON.stringify({ resources: { core: { limit: 5000, remaining: 5000, reset: 0 } } })
 
 afterEach(() => {

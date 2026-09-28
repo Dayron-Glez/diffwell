@@ -11,7 +11,7 @@ One sentence. "Scrolling the kernel fixture stutters", "first paint on 50k lines
 
 ## 📊 The numbers
 
-"It feels slow" is not actionable. hunk's whole premise is a published number, so a regression
+"It feels slow" is not actionable. diffwell's whole premise is a published number, so a regression
 has to be stated as one.
 
 |                          | Value                                                        |

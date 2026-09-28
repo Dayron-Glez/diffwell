@@ -1,6 +1,6 @@
 # The benchmark
 
-hunk's claim is a number, so the number has to be reproducible by anyone who doubts it. This
+diffwell's claim is a number, so the number has to be reproducible by anyone who doubts it. This
 directory is that claim, executable.
 
 ```bash
@@ -82,7 +82,7 @@ re-measured with styles before anything was compared against it.
 ## What it deliberately does not measure
 
 - **Fetching the diff.** The clock starts once the source is in hand. Network latency is not
-  hunk's to answer for.
+  diffwell's to answer for.
 - **The application shell.** The harness renders `DiffView` directly, without the file picker
   around it, so a measurement is of the viewer rather than of the page that leads to it.
 - **The other libraries.** The comparison against `react-diff-viewer`,

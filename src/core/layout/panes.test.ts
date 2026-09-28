@@ -131,7 +131,7 @@ describe('remembering it across a reload', () => {
   })
 
   it('clamps what it reads, in case a stored width predates the limits', () => {
-    localStorage.setItem('hunk.split-ratios', JSON.stringify({ 'a.ts': 0.99 }))
+    localStorage.setItem('diffwell.split-ratios', JSON.stringify({ 'a.ts': 0.99 }))
     expect(readRatios().get('a.ts')).toBe(MAX_RATIO)
   })
 
@@ -153,7 +153,7 @@ describe('remembering it across a reload', () => {
   it.each(['', 'not json', '[]', 'null', '{"a.ts":"wide"}'])(
     'ignores %o rather than failing to render',
     (bad) => {
-      localStorage.setItem('hunk.split-ratios', bad)
+      localStorage.setItem('diffwell.split-ratios', bad)
       expect(readRatios().size).toBe(0)
     },
   )

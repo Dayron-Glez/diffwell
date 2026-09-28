@@ -1,6 +1,6 @@
 ---
 name: '🚀 Feature Request'
-about: Propose something hunk should do
+about: Propose something diffwell should do
 title: '[feat] '
 labels: enhancement
 ---
@@ -15,7 +15,7 @@ Who is stuck today, and on what?
 
 ## 🗺️ Which phase does it belong to
 
-hunk has a fixed roadmap and a fixed budget. A proposal either fits a phase or it is out of
+diffwell has a fixed roadmap and a fixed budget. A proposal either fits a phase or it is out of
 scope for now — saying which keeps that honest.
 
 - [ ] **F1** — variable-height virtualization + prefix-sum tree

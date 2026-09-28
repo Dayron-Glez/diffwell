@@ -15,7 +15,7 @@
  */
 
 /** Namespaced, because an artifact host may serve other things beside this. */
-const KEY = 'hunk.split-ratios'
+const KEY = 'diffwell.split-ratios'
 
 export const DEFAULT_RATIO = 0.5
 

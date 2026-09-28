@@ -1,4 +1,4 @@
-# hunk
+# diffwell
 
 A diff viewer for the files that bring the others down. Paste a GitHub pull request URL, drop
 two files or a `.patch`, and read it.
@@ -185,7 +185,7 @@ keeps its own snapshot beside it, with every individual run alongside the median
 fall over past 50k lines. GitHub has years of issues about multi-second freezes with the CPU
 pinned at 100%, and published an engineering post about how hard the problem is.
 
-**hunk uses no diff-viewer library.** The parser, the variable-height virtualization, the
+**diffwell uses no diff-viewer library.** The parser, the variable-height virtualization, the
 prefix-sum tree, the worker-based highlighting, the word-level diff, the two-column alignment
 and the folding are written here. That is the entire project.
 

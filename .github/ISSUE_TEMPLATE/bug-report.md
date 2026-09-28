@@ -11,7 +11,7 @@ What is broken? Describe what you saw.
 
 ## 📄 The diff that triggers it
 
-**This is the most important field.** hunk takes a diff as input, so without the input there
+**This is the most important field.** diffwell takes a diff as input, so without the input there
 is no reproducible case. Paste the smallest diff that still shows the problem, or link to the
 pull request / commit it came from.
 
