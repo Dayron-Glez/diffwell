@@ -199,7 +199,7 @@ export function SourcePicker({
         <div className="flex items-center gap-3">
           <FileDiff aria-hidden className="size-7 text-sky-500" />
           <div>
-            <h1 className="font-mono text-2xl font-semibold text-neutral-100">hunk</h1>
+            <h1 className="font-mono text-2xl font-semibold text-neutral-100">diffwell</h1>
             <p className="text-sm text-neutral-400">a high-performance diff viewer</p>
           </div>
         </div>

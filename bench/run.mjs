@@ -7,7 +7,7 @@ import { preview } from 'vite'
 import { materializeCases } from './cases.mjs'
 
 /**
- * Measures how long hunk takes to put a diff on screen, how well it scrolls
+ * Measures how long diffwell takes to put a diff on screen, how well it scrolls
  * once it is there, and what it costs to keep it there.
  *
  * Every number is a median of REPEATS runs in a fresh page, against a

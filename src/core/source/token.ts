@@ -1,5 +1,5 @@
 /**
- * A GitHub token the reader supplied, so hunk can read what is theirs.
+ * A GitHub token the reader supplied, so diffwell can read what is theirs.
  *
  * Without one this viewer sees public repositories and sixty requests an
  * hour. Most diffs worth reading are neither, which is the line between a
@@ -11,7 +11,7 @@
  */
 
 /** Namespaced, because an artifact host may serve other things beside this. */
-const KEY = 'hunk.github-token'
+const KEY = 'diffwell.github-token'
 
 /**
  * Reading and writing storage can throw rather than return nothing — a

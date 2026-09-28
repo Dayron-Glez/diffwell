@@ -210,7 +210,7 @@ export function VirtualDiff({
     if (style === null) return
     let text = ''
     for (const [at, pan] of pans.current) {
-      text += `[data-file="${String(at)}"]{--hunk-pan-old:${String(pan.old)}px;--hunk-pan-new:${String(pan.new)}px}`
+      text += `[data-file="${String(at)}"]{--diffwell-pan-old:${String(pan.old)}px;--diffwell-pan-new:${String(pan.new)}px}`
     }
     style.textContent = text
   }, [])
@@ -839,7 +839,7 @@ export function VirtualDiff({
         // The share this file's columns take, written where a row can inherit
         // it. A prop would have to pass through every row on screen to reach
         // a cell that has no other reason to know what the layout is doing.
-        style={{ '--hunk-split': ratioOf(ref.file) } as CSSProperties}
+        style={{ '--diffwell-split': ratioOf(ref.file) } as CSSProperties}
       >
         <Row
           rows={rows}
@@ -928,7 +928,7 @@ export function VirtualDiff({
           A long path wraps in two columns rather than running off the edge,
           which is what `flex-wrap` on the file header was always for.
         */
-        style={{ '--hunk-row': mode === 'split' ? '100%' : 'max-content' } as CSSProperties}
+        style={{ '--diffwell-row': mode === 'split' ? '100%' : 'max-content' } as CSSProperties}
       >
         <div role="status" aria-live="polite" className="sr-only">
           {announcement}

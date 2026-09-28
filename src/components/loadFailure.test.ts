@@ -51,10 +51,10 @@ describe('what the reader is told', () => {
   })
 
   /** The one failure where the limit is GitHub's and not this viewer's. */
-  it('says the size is GitHub refusing, not hunk giving up', () => {
+  it('says the size is GitHub refusing, not diffwell giving up', () => {
     const said = describeFailure({ kind: 'too-large', ref: REF }, { now: NOW })
     expect(said).toContain('GitHub will not generate')
-    expect(said).toContain('hunk itself has no trouble')
+    expect(said).toContain('diffwell itself has no trouble')
   })
 
   it('passes on what the network said', () => {
@@ -73,7 +73,7 @@ describe('what the reader is told', () => {
   })
 
   /** A token changes what a 404 and a 403 mean, so it changes what they say.
-   *  Telling a reader with a token that hunk "cannot reach private
+   *  Telling a reader with a token that diffwell "cannot reach private
    *  repositories" would be false, and telling them the ceiling is sixty
    *  would be off by a factor of eighty. */
   it('stops blaming privacy once a token is in play', () => {

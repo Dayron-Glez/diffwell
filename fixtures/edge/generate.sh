@@ -21,7 +21,7 @@ git config core.autocrlf false
 git config core.safecrlf false
 git config core.quotePath true
 git config user.name fixture
-git config user.email fixture@hunk.invalid
+git config user.email fixture@diffwell.invalid
 export GIT_AUTHOR_DATE='2020-01-01T00:00:00+0000'
 export GIT_COMMITTER_DATE='2020-01-01T00:00:00+0000'
 

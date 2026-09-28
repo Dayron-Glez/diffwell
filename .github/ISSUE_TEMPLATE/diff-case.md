@@ -25,7 +25,7 @@ commit or pull request so it can be re-fetched later.
 - [ ] Produced with git locally — commands:
 - [ ] Hand-written to isolate the case
 
-## 🔍 What hunk does with it
+## 🔍 What diffwell does with it
 
 What you see now: a dropped file, wrong line numbers, mangled characters, a warning that
 should not be there, an exception.

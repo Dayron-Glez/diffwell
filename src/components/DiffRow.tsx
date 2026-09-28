@@ -184,9 +184,9 @@ export function SplitDiffRow({
  * space, which is how Tailwind spells an arbitrary value.
  */
 const OLD_PANE =
-  '[--hunk-pane:calc(var(--hunk-split,0.5)*100%)] [--hunk-shift:var(--hunk-pan-old,0px)]'
+  '[--diffwell-pane:calc(var(--diffwell-split,0.5)*100%)] [--diffwell-shift:var(--diffwell-pan-old,0px)]'
 const NEW_PANE =
-  '[--hunk-pane:calc((1_-_var(--hunk-split,0.5))*100%)] [--hunk-shift:var(--hunk-pan-new,0px)]'
+  '[--diffwell-pane:calc((1_-_var(--diffwell-split,0.5))*100%)] [--diffwell-shift:var(--diffwell-pan-new,0px)]'
 
 function SplitCell({
   line,
@@ -205,7 +205,7 @@ function SplitCell({
     return (
       <div
         role="gridcell"
-        className={`${share} w-(--hunk-pane) shrink-0 border-l-4 border-l-transparent bg-neutral-900/40`}
+        className={`${share} w-(--diffwell-pane) shrink-0 border-l-4 border-l-transparent bg-neutral-900/40`}
       >
         <span className="sr-only select-none">
           {column === 'old' ? 'No line here before.' : 'No line here after.'}
@@ -217,7 +217,7 @@ function SplitCell({
   return (
     <div
       role="gridcell"
-      className={`${share} flex w-(--hunk-pane) shrink-0 ${EDGE_STYLES[line.kind]} ${ROW_STYLES[line.kind]}`}
+      className={`${share} flex w-(--diffwell-pane) shrink-0 ${EDGE_STYLES[line.kind]} ${ROW_STYLES[line.kind]}`}
     >
       <span className="sr-only select-none">
         {spokenLabel(line, column === 'old' ? line.oldNumber : line.newNumber)}
@@ -252,7 +252,7 @@ function SplitCell({
       <span className="min-w-0 flex-1 overflow-hidden">
         <span
           data-col={column}
-          className="block w-max translate-x-[calc(var(--hunk-shift,0px)*-1)] whitespace-pre text-neutral-200"
+          className="block w-max translate-x-[calc(var(--diffwell-shift,0px)*-1)] whitespace-pre text-neutral-200"
         >
           <LineContent line={line} segments={segments} />
           {line.noNewlineAtEof ? (
