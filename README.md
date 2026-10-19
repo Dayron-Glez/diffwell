@@ -3,12 +3,12 @@
 A diff viewer for the files that bring the others down. Paste a GitHub pull request URL, drop
 two files or a `.patch`, and read it.
 
-> **Status: F6 complete — every target is met, with room to spare.**
+> **Status: F10 complete — every target is met, with room to spare.**
 > Variable-height virtualization, syntax highlighting that arrives from a worker without
 > touching first paint, the change inside a line marked word by word in one column or two, the
 > whole thing foldable and readable from the keyboard, and a pull request opened from its link
-> — public or, with a token of your own, private. The numbers below are measured and
-> reproducible.
+> — public or, with a token of your own, private. Deployed, and the samples no longer ride
+> along in the bundle. The numbers below are measured and reproducible.
 
 ## Where it stands today
 
@@ -24,6 +24,12 @@ back button. The unchanged lines `-U3` left out are fetched and put back where t
 checked against the diff first so a branch that moved since cannot quietly show you the wrong
 ones. Reading a private repository takes a token you make and keep; it is checked before it is
 kept, sent to one host, and never put in the address bar.
+
+Each file carries its own share of the view in two columns, draggable and remembered, and its
+own horizontal scrollbar — one per column, panning the column rather than the row under the
+pointer. A line is numbered once in the unified layout rather than twice with one of them
+blank. The diff's six colours are tokens with their contrast written beside them, and
+`npm run audit:contrast` is what says the figures are still true.
 
 Measured on an AMD Ryzen 7 5800H against a production build, median of three runs each in a
 fresh page.
