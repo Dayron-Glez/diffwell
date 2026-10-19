@@ -14,7 +14,7 @@ import { sizeOf } from '../core/expand/gaps'
 import { EXPAND_BY, Folding, type HunkRef } from '../core/layout/folding'
 import { MeasuredHeights } from '../core/layout/measuredHeights'
 import { DEFAULT_RATIO, clampPan, readRatios, withRatio, writeRatios } from '../core/layout/panes'
-import { onScreen } from '../core/layout/sticky'
+import { onScreen, stripTop } from '../core/layout/sticky'
 import { BAR_HEIGHT, ColumnScrollbars } from './ColumnScrollbars'
 import { PaneDivider } from './PaneDivider'
 import { describePath } from './fileSummary'
@@ -196,12 +196,10 @@ export function VirtualDiff({
       // right edge — so left to itself the bar came out wider than the column
       // it scrolls, with a thumb to match.
       strip.style.width = `${String(scroller.clientWidth)}px`
-      // At the end of its own file, never held against the bottom of the
-      // view. Held there it sat flush with the edge of the window and its two
-      // halves spanned the whole width, which reads as one bar belonging to
-      // the viewer rather than as this file's. The cost is that a file taller
-      // than the view shows no bar until the reader reaches its end.
-      strip.style.transform = `translate(${String(scroller.scrollLeft)}px, ${String(block.bottom - BAR_HEIGHT)}px)`
+      // On the bottom edge of the view while the file runs past it, at rest
+      // on the file's own last rows once they are on screen. `stripTop` is
+      // where that is decided, and where it says why.
+      strip.style.transform = `translate(${String(scroller.scrollLeft)}px, ${String(stripTop(block, viewport, BAR_HEIGHT))}px)`
     }
   }, [])
 

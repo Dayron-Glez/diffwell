@@ -8,12 +8,13 @@
  * number of our own also means the browser does the clamping: a bar cannot be
  * scrolled past its own content, so nothing here works out how far is too far.
  *
- * Held against the bottom of its own file, which is where a scrollbar belongs
- * and where an editor puts it. It overlays the bottom edge of the view while
- * the file runs past it, and comes to rest on the file's last rows — which
- * carry a strip's worth of padding for exactly that, so it never covers a
- * line of code. Putting it in the file's header instead was tried and reads
- * as the wrong end of the file.
+ * Along the bottom, which is where a scrollbar belongs and where an editor
+ * puts it: on the bottom edge of the view while the file runs past it, and
+ * at rest on the file's last rows once they are on screen — those rows carry
+ * a strip's worth of padding for exactly that, so at rest it never covers a
+ * line of code. Riding the edge it does lie over one, which is what the
+ * fading below is for. `stripTop` decides between the two. Putting it in the
+ * file's header instead was tried and reads as the wrong end of the file.
  *
  * Native, deliberately. A scroll area from a component library would replace
  * the element the virtualizer, the resize observer, the row hints and the
